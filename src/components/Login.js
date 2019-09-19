@@ -33,18 +33,24 @@ class Login extends Component {
     const { email, password, error } = this.state;
     return (
       <div className='container'>
-        <div> Log In! </div> 
 
-        { error ? (
-          <div> 
-            {error.message} 
-          </div> 
-        ) : null }
-          <form onSubmit={this.handleSubmit}>
-            <input type='text' name='email' placeholder='Email' value={email} onChange={this.handleInputChange} /> 
-            <input type='password' name='password' placeholder='Password' value={password} onChange={this.handleInputChange} />
-            <button children='Log In' /> 
+        <div id='loginForm' className='row justify-content-center align-items-center h-100'>
+          <div className='col col-sm-6 col-md-6 col-lg-4 col-xl-3'>
+            <h1 id='loginHeaders'> Log In </h1>
+            <form className='mt-4' onSubmit={this.handleSubmit}>
+              <div className='form-group'>
+                <input className='form-control form-control-lg' type='text' name='email' placeholder='Email' value={email} onChange={this.handleInputChange} /> 
+              </div>
+              <div className='form-group'>
+                <input className='form-control form-control-lg' type='password' name='password' placeholder='Password' value={password} onChange={this.handleInputChange} />
+              </div>
+              <button className='btn btn-primary btn-block' children='Log In' /> 
           </form>
+          </div>
+        </div>
+        { error ? (
+          <div className='row mt-3 justify-content-center align-items-center'> {error.message} </div>
+        ) : null }
 
       </div>
     );

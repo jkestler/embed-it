@@ -22,7 +22,7 @@ class Register extends Component {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
       })
       .catch((err) => {
         this.setState({ error: err })
@@ -34,24 +34,59 @@ class Register extends Component {
 
     return (
       <div className='container'>
-        <div>
-          Register
-        </div>
+
+  
+        <div id='signupForm' className='row justify-content-center align-items-center h-100'>
+          <div className='col col-sm-6 col-md-6 col-lg-4 col-xl-3'>
+            <h1 id='loginHeaders'> Sign Up</h1>
+            <form className='mt-4' onSubmit={this.handleSubmit}>
+              <div className='form-group'>
+                <input className='form-control form-control-lg' type='text' name='email' placeholder='Email' value={email} onChange={this.handleInputChange} />
+              </div>
+              <div className='form-group'>
+                <input className='form-control form-control-lg'  type='password' name='password' placeholder='Password' value={password} onChange={this.handleInputChange}/>
+              </div>
+              <button className='btn btn-primary btn-block' children='Register'></button>
+            </form>
+          </div>
+        </div> 
 
         { error ? (
-         <div> {error.message}</div>
+          <div className='row mt-3 justify-content-center align-items-center'> {error.message} </div>
         ) : null }
-      
-            <form onSubmit={this.handleSubmit} >
-              <input type='text' name='email' placeholder='Email' value={email} onChange={this.handleInputChange} />
-              <input type='password' name='password' placeholder='Password' value={password} onChange={this.handleInputChange} />
-              <button children='Register' />
-            </form>
-      
-      
+        
       </div>
     )
   }
 }
 
 export default withRouter(Register);
+
+// render() {
+//   const { email, password, error } = this.state;
+//   return (
+//     <div className='container'>
+
+//       { error ? (
+//         <div> 
+//           {error.message} 
+//         </div> 
+//       ) : null }
+//       <div id='signupForm' className='row justify-content-center align-items-center h-100'>
+//         <div className='col col-sm-6 col-md-6 col-lg-4 col-xl-3'>
+//           <h1 id='loginHeaders'> Log In </h1>
+//           <form onSubmit={this.handleSubmit}>
+//             <div className='form-group'>
+//               <input className='form-control form-control-lg' type='text' name='email' placeholder='Email' value={email} onChange={this.handleInputChange} /> 
+//             </div>
+//             <div className='form-group'>
+//               <input className='form-control form-control-lg' type='password' name='password' placeholder='Password' value={password} onChange={this.handleInputChange} />
+//             </div>
+//             <button className='btn btn-primary btn-block' children='Log In' /> 
+//         </form>
+//         </div>
+//       </div>
+
+//     </div>
+//   );
+// }
