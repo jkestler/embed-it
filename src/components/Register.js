@@ -17,11 +17,19 @@ class Register extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
+    const db = firebase.firestore();
 
     firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((user) => {
+      .auth().createUserWithEmailAndPassword(email, password)
+      .then((cred) => {
+        let auth = firebase.auth().currentUser;
+        // console.log('Auth Credentials', cred);
+        // console.log('Authenticated User', auth);
+        return db.collection('users').doc(cred.user.uid).set({
+          email: cred.user.email
+        });
+      })
+      .then(() => {
         this.props.history.push('/dashboard');
       })
       .catch((err) => {

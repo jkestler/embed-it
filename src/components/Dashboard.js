@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container, Flex, Box, Heading } from 'rebass';
 
 const Dashboard = () => {
   return (

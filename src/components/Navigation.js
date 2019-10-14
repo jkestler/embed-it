@@ -12,26 +12,29 @@ class Navigation extends Component {
  render() {
    return (
      <Router>
-       <div className='container'>>
-             <NavLink to="/">Home</NavLink>
-             {this.props.authenticated ? (
-             <span>
-               <NavLink to="/dashboard">Dashboard</NavLink>
-               <LogOut />
-             </span>
-             ) : (
-             <span>
-               <NavLink to="/login">Login</NavLink>
-               <NavLink to="/register">Register</NavLink>
-             </span>
-             )}
-         <Switch>
-           <Route exact path="/" component={Landing} />
-           <Route authenticated={this.props.authenticated} path="/login" component={Login} />
-           <Route path="/register" component={Register} />
-           <ProtectedRoute authenticated={this.props.authenticated} path="/dashboard" component={Dashboard} />
-         </Switch>
-       </div>
+        <div className='container'>>
+          <NavLink to="/">Home</NavLink>
+          {/* if authenticated show dashboard with link to dashboard, otherwise show login/register links */}
+          { this.props.authenticated ? (
+            <span>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+              <LogOut />
+            </span>
+          ) : (
+            <span>
+              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/register">Register</NavLink>
+            </span>
+          )}
+          {/* */}
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route authenticated={this.props.authenticated} path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            {/* Once authenticated we hit /dashboard and render our protected route /dashboard component  */}
+            <ProtectedRoute authenticated={this.props.authenticated} path="/dashboard" component={Dashboard} />
+          </Switch>
+        </div>
      </Router>
    );
  }

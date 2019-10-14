@@ -14,6 +14,25 @@
   }
 }
 
+/* when we create a form we create forms document with a unqiue id and properties of:
+
+- owner: users uid
+  ---- to get currentUsers UID - let auth = firebase.auth().currentUser;
+- title: created by user
+- smsContent: 'download this link http://www.downloadmyapp.com'
+
+! To create form document - we need an auto-generated UID for the document: 
+db.collection('forms').add({
+  owner: auth,
+  title: this.state.title (?)
+  smsContent: this.state.smsContent (?)
+})
+.then((docRef) => {
+  etc....
+})
+
+*/
+
 
 
 

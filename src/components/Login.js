@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { Container, Flex, Box, Input, Button, Subhead, Text } from 'rebass';
 import firebase from 'firebase';
 
