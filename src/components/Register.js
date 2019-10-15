@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Container, Flex, Box, Input, Button, Subhead, Text } from 'rebass';
+// import { Container, Flex, Box, Input, Button, Subhead, Text } from 'rebass';
 import firebase from 'firebase';
 
 class Register extends Component { 
@@ -24,7 +24,7 @@ class Register extends Component {
       .then((cred) => {
         let auth = firebase.auth().currentUser;
         // console.log('Auth Credentials', cred);
-        // console.log('Authenticated User', auth);
+        console.log('Authenticated User ID', auth.uid);
         return db.collection('users').doc(cred.user.uid).set({
           email: cred.user.email
         });
@@ -58,10 +58,10 @@ class Register extends Component {
             </form>
           </div>
         </div> 
-
         { error ? (
-          <div className='row mt-3 justify-content-center align-items-center'> {error.message} </div>
+          <div id='auth-error' className='row justify-content-center align-items-center'> {error.message} </div>
         ) : null }
+
         
       </div>
     )

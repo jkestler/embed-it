@@ -19,19 +19,40 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+#search-input input {
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#search-input textarea {
+  width: 100%;
 }
+
+#add-form-button {
+  margin-top: 300px;
+  position: absolute;
+}
+
+nav {
+  background-color: #282c34
+}
+/* 
+.nav-link {
+  position: relative;
+  right: 0;
+} */
+
+
+/* ---- AUTHENTICATION ---- */ 
 
 #loginHeaders {
   text-align: center;
 }
+#signupForm {
+  margin: 20% 0 4% 0;
+}
+
+#loginForm {
+  margin: 20% 0 4% 0;
+}
+

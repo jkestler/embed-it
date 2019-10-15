@@ -12,19 +12,20 @@ class Navigation extends Component {
  render() {
    return (
      <Router>
-        <div className='container'>>
-          <NavLink to="/">Home</NavLink>
+        <div className='container'>
           {/* if authenticated show dashboard with link to dashboard, otherwise show login/register links */}
+        
           { this.props.authenticated ? (
-            <span>
-              <NavLink to="/dashboard">Dashboard</NavLink>
+            <nav className='navbar navbar-expand-lg fixed-top'>
+              <NavLink to="/" className='nav-link btn btn-primary'>Home</NavLink>
+              <NavLink to="/dashboard" className='nav-link btn btn-success ml-2'>Dashboard</NavLink>
               <LogOut />
-            </span>
+            </nav>
           ) : (
-            <span>
-              <NavLink to="/login">Login</NavLink>
-              <NavLink to="/register">Register</NavLink>
-            </span>
+            <nav className='navbar navbar-expand-lg fixed-top'>
+              <NavLink to="/login" className='nav-link btn btn-primary '>Login</NavLink>
+              <NavLink to="/register" className='ml-2 nav-link btn btn-info'>Register</NavLink>
+            </nav>
           )}
           {/* */}
           <Switch>

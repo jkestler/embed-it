@@ -7,7 +7,7 @@ const logOutUser = () => {
 };
 
 const LogOut = () => {
-  return <button onClick={logOutUser} children='Log Out' />;
+  return <button className='nav-link btn btn-info ml-2' onClick={logOutUser} children='Log Out' />;
 };
 
 export default LogOut;
