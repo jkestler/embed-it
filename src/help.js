@@ -46,6 +46,8 @@
     src="http://cleversmsembeds.com/embed/fghjuytr4567tyuid"> /* this will display this link which is the embeddable form */
 </iframe> 
 
+// https://codeshare.io/5eeQpK
+
 // http://cleversmsembeds.com/embed/fghjuytr4567tyuid
 // that's a page that grabs the UID there and then loads the content from Firebase and displays the form input
 
@@ -61,7 +63,7 @@
 
    2. Create Form - NEXT - add button to dashboard with modal popup - COMPLETE
    
-   3. 
+   3. Map through form  
   
    3. Create url route that when hit grabs the forms UID and then loads its smsContent from Firebase and displays the form input. This will be used as the src attribute
      and will be what is embedded on the user's screen. 
@@ -70,3 +72,32 @@
 
 
 */
+
+
+/*
+1. I create a user, or login
+ 
+2. I click create new form (edited) 
+
+3. it gives me a stupid simple fucking form to embed
+  and then you can edit the text that is in the SMS
+  the form is always the same
+  but the SMS text is different
+
+4. I give instructions on how to embed the form (meaning you have to build an embedable thing)
+  building those embeds isn’t actually to terribly difficult
+
+5. when someone comes in and types their phone number in
+  on the website it’ll text them the text that is preset in the dashboard
+  ideally used for like download links for a mobile app
+  ever seen that before on sites?
+  pop in your number and we’ll send you a download to the app type deal?
+  I like this one a good bit
+  you can use firebase functions for the backend
+  and deploy on firebase hosting or something
+
+*/
+
+
+//Form is the same every single time 
+// SMS content & title is the only thing that changes

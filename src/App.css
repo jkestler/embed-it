@@ -56,3 +56,9 @@ nav {
   margin: 20% 0 4% 0;
 }
 
+#preview-form {
+  border: 1px solid #bd585872;
+  border-radius: 5px;
+  margin-top: 10px !important;
+  /* background-color: #4da6f934 */
+}
