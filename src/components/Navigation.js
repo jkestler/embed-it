@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Column } from 'rebass';
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
 import Landing from './Landing';
 import Login from './Login';
@@ -16,13 +15,15 @@ class Navigation extends Component {
           {/* if authenticated show dashboard with link to dashboard, otherwise show login/register links */}
         
           { this.props.authenticated ? (
-            <nav className='navbar navbar-expand-lg fixed-top'>
-              <NavLink to="/" className='nav-link btn btn-primary'>Home</NavLink>
-              <NavLink to="/dashboard" className='nav-link btn btn-success ml-2'>Dashboard</NavLink>
+            <nav className='navbar fixed-top'>
+              <div className='navbar-brand logo'>embed<em>It</em></div>
+              {/* <NavLink to="/" className='nav-link btn btn-primary'>Home</NavLink> */}
+              <NavLink to="/dashboard" className='nav-link btn btn-primary btn-lg'>Dashboard</NavLink>
               <LogOut />
             </nav>
           ) : (
-            <nav className='navbar navbar-expand-lg fixed-top'>
+            <nav className='navbar fixed-top'>
+            <div className='navbar-brand logo'>embed<em>It</em></div>
               <NavLink to="/login" className='nav-link btn btn-primary '>Login</NavLink>
               <NavLink to="/register" className='ml-2 nav-link btn btn-info'>Register</NavLink>
             </nav>

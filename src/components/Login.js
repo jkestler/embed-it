@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
-import { Container, Flex, Box, Input, Button, Subhead, Text } from 'rebass';
+import { withRouter } from 'react-router-dom';
+// import { Container, Flex, Box, Input, Button, Subhead, Text } from 'rebass';
 import firebase from 'firebase';
 
 class Login extends Component {
