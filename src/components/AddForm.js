@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 class AddForm extends Component {
   constructor(props) {
@@ -30,13 +30,9 @@ class AddForm extends Component {
       smsContent: smsContent
     })
     .then((docRef) => {
-      db.collection('forms').add({
-        formId: docRef.id
-      })
-      .then((docRef) => {
-        this.props.toggleAddForm();
-      })
-      
+      this.props.toggleAddForm();
+      console.log(docRef.id);
+      // etc....
     })
     .catch((err) => {
       console.log(err);

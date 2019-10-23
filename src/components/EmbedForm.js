@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import firebase from 'firebase';
+import { Modal, ModalHeader } from 'reactstrap';
+// import firebase from 'firebase/app';
 import Highlight from 'react-highlight';
 
 class EmbedForm extends Component {
@@ -41,5 +41,4 @@ class EmbedForm extends Component {
 
 export default EmbedForm;
 
-{/*  */}
 

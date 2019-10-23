@@ -17,20 +17,22 @@ class Dashboard extends Component {
   }
 
   componentDidMount = () => {
-
-    // const db = firebase.firestore();
+    // Query formsRef and add queried data to state
+    
     const userId = firebase.auth().currentUser.uid;
     const db = firebase.firestore();
     const formsRef = db.collection('forms');
 
     formsRef.where('owner', '==', userId)
       .onSnapshot( querySnapshot => {
+        // map to get object properties
         const data = querySnapshot.docs.map(doc => doc.data() );
+        // map to get document id
         const formId = querySnapshot.docs.map(doc => doc.id);
+        // iterate through form data object and add a formId field to each item with a value of form doc's uid at matching index of data. 
         data.forEach((item, index) => {
           item['formId'] = formId[index];
         })
-
         this.setState({ userForms: data}) 
         console.log('User Forms', this.state.userForms);
       });
