@@ -31,7 +31,10 @@ class AddForm extends Component {
     })
     .then((docRef) => {
       this.props.toggleAddForm();
+<<<<<<< HEAD
       console.log(docRef.id);
+=======
+>>>>>>> parent of 5553b5e... formId added to iframe element src
       // etc....
     })
     .catch((err) => {
@@ -57,7 +60,7 @@ class AddForm extends Component {
             <form className='form-inline list-group my-lg-0' id='search-input' onSubmit={this.handleSubmit}>
               <input className='form-control m-1' type='text' placeholder='Form Title' name='title' onChange={this.handleChange} value={this.state.title}/>
               <textarea rows='4' className='form-control m-1' type='text' placeholder='SMS Content' name='smsContent' onChange={this.handleChange} value={this.state.smsContent} />
-              <button type='submit' className='btn btn-block btn-primary ' onClick={this.handleSubmit}> Save </button>
+              <button type='submit' className='btn btn-block btn-primary ' onClick={this.addForm}> Save </button>
               <button className='btn btn-block btn-danger my-2' onClick={this.props.toggleAddForm}> Cancel </button>
             </form>
           </ModalBody>

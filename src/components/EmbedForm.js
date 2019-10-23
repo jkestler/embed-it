@@ -9,7 +9,6 @@ class EmbedForm extends Component {
     this.state = {
       modal: false
     }
-    this.id = this.props.formId
   }
 
   render() {
@@ -27,7 +26,7 @@ class EmbedForm extends Component {
     title="Download our app or whatever"
     width="300"
     height="200"
-    src="http://cleversmsembeds.com/embed/`}{this.props.formId}{`"> 
+    src="http://cleversmsembeds.com/embed/fghjuytr4567tyuid"> 
   </iframe>
 `}
 </Highlight>
