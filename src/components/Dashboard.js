@@ -11,7 +11,8 @@ class Dashboard extends Component {
     this.state = {
       showAddForm: false,
       showEmbed: false,
-      userForms: null
+      userForms: null,
+      formId: null
     }
   }
 
@@ -24,24 +25,29 @@ class Dashboard extends Component {
 
     formsRef.where('owner', '==', userId)
       .onSnapshot( querySnapshot => {
-        const data = querySnapshot.docs.map(doc => doc.data());
-        console.log(data);
+        const data = querySnapshot.docs.map(doc => doc.data() );
+        const formId = querySnapshot.docs.map(doc => doc.id);
+        data.forEach((item, index) => {
+          item['formId'] = formId[index];
+        })
+
         this.setState({ userForms: data}) 
         console.log('User Forms', this.state.userForms);
       });
-
   }
 
-  toggleEmbed = () => {
+  toggleEmbed = (id) => {
     this.setState({
-      showEmbed: !this.state.showEmbed
+      showEmbed: !this.state.showEmbed,
+      formId: id
     });
   };
 
   toggleAddForm = () => {
     this.setState({
-      showAddForm: !this.state.showAddForm
+      showAddForm: !this.state.showAddForm,
     });
+
     console.log(this.state.showAddForm);
   }
 
@@ -51,7 +57,7 @@ class Dashboard extends Component {
     return (
       <div className='dash-main'>
         {this.state.showAddForm ? <AddForm className='mt-4' toggleAddForm={this.toggleAddForm} /> : ''}
-        {this.state.showEmbed ? <EmbedForm className='mt-4' toggleEmbed={this.toggleEmbed} /> : ''}
+        {this.state.showEmbed ? <EmbedForm className='mt-4' formId={this.state.formId} toggleEmbed={this.toggleEmbed} /> : ''}
 
         <div className='add-form-container' onClick={this.toggleAddForm}>
           <FaPlusCircle id='add-icon' />
@@ -71,7 +77,7 @@ class Dashboard extends Component {
                     <p id='form-description'> {form.smsContent}</p>
                   </div>
                   <div className='col-md-2'>
-                    <button id='embed-button' onClick={this.toggleEmbed} className='btn btn-info btn-block' > Embed </button>
+                    <button id='embed-button'  onClick={(id)=> this.toggleEmbed(form.formId)} className='btn btn-info btn-block' > Embed </button>
                   </div>  
                 </div>
             )) : ''

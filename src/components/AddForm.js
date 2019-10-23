@@ -30,8 +30,13 @@ class AddForm extends Component {
       smsContent: smsContent
     })
     .then((docRef) => {
-      this.props.toggleAddForm();
-      // etc....
+      db.collection('forms').add({
+        formId: docRef.id
+      })
+      .then((docRef) => {
+        this.props.toggleAddForm();
+      })
+      
     })
     .catch((err) => {
       console.log(err);
@@ -56,7 +61,7 @@ class AddForm extends Component {
             <form className='form-inline list-group my-lg-0' id='search-input' onSubmit={this.handleSubmit}>
               <input className='form-control m-1' type='text' placeholder='Form Title' name='title' onChange={this.handleChange} value={this.state.title}/>
               <textarea rows='4' className='form-control m-1' type='text' placeholder='SMS Content' name='smsContent' onChange={this.handleChange} value={this.state.smsContent} />
-              <button type='submit' className='btn btn-block btn-primary ' onClick={this.addForm}> Save </button>
+              <button type='submit' className='btn btn-block btn-primary ' onClick={this.handleSubmit}> Save </button>
               <button className='btn btn-block btn-danger my-2' onClick={this.props.toggleAddForm}> Cancel </button>
             </form>
           </ModalBody>
