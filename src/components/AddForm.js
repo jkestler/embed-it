@@ -31,10 +31,6 @@ class AddForm extends Component {
     })
     .then((docRef) => {
       this.props.toggleAddForm();
-<<<<<<< HEAD
-      console.log(docRef.id);
-=======
->>>>>>> parent of 5553b5e... formId added to iframe element src
       // etc....
     })
     .catch((err) => {
